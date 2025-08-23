@@ -1,111 +1,39 @@
-// prompt --> para simular un input
+const productos = [
+  { id: 1, nombre: "Notebook Lenovo", precio: 450000, stock: 12 },
+  { id: 2, nombre: "Smartphone Samsung Galaxy", precio: 320000, stock: 8 },
+  { id: 3, nombre: "Mouse inalámbrico Logitech", precio: 15000, stock: 25 },
+  { id: 4, nombre: "Teclado mecánico Redragon", precio: 28000, stock: 10 },
+  { id: 5, nombre: "Monitor 24'' LG", precio: 90000, stock: 6 },
+  { id: 6, nombre: "Auriculares Bluetooth Sony", precio: 52000, stock: 15 },
+  { id: 7, nombre: "Tablet Xiaomi Pad", precio: 210000, stock: 7 },
+  { id: 8, nombre: "Disco externo 1TB WD", precio: 48000, stock: 14 },
+  { id: 9, nombre: "Impresora HP Multifunción", precio: 87000, stock: 5 },
+  { id: 10, nombre: "Webcam Full HD Logitech", precio: 32000, stock: 11 },
+  { id: 3, nombre: "Mouse inalámbrico Logitech", precio: 15000, stock: 25 },
+  { id: 4, nombre: "Teclado mecánico Redragon", precio: 28000, stock: 10 },
+  { id: 5, nombre: "Monitor 24'' LG", precio: 90000, stock: 6 },
+  { id: 6, nombre: "Auriculares Bluetooth Sony", precio: 52000, stock: 15 },
+  { id: 7, nombre: "Tablet Xiaomi Pad", precio: 210000, stock: 7 },
+  { id: 8, nombre: "Disco externo 1TB WD", precio: 48000, stock: 14 },
+  { id: 9, nombre: "Impresora HP Multifunción", precio: 87000, stock: 5 },
+  { id: 10, nombre: "Webcam Full HD Logitech", precio: 32000, stock: 11 },
+];
+let carrrito = [];
+const renderizarProductos = () => {
+  let contenedor = document.querySelector(".productos");
+  let htmlCompletoDeProductos = "";
 
-// consola --> para simular lo que devuelvo en el html
+  productos.forEach((producto) => {
+    htmlCompletoDeProductos += `
+    <div class="producto">
+      <h3>${producto.nombre}</h3>
+      <h5>${producto.precio}</h5>
+      <button>Agregar al carrito</button>
+    </div>
+    `;
+  });
 
-// prompt("ingresa un numero");
-// console.log("hola");
-// alert("tu numero es tanto");
+  contenedor.innerHTML = htmlCompletoDeProductos;
+};
 
-// Variables --> son cajas para guardar algo
-
-// let y const
-// el iniciador , el nombre , el =  y el valor
-
-// sintaxis
-let emaildelusuario = "jorgedu@gmail.com";
-
-let emailDelUsuario = "jorgedu@gmail.com";
-
-let nombre = "pepe";
-
-let password = 123456;
-
-let apellido = "perez";
-
-let edad = 32;
-
-console.log(edad);
-
-console.log(edad);
-
-edad = 33;
-
-apellido = "torres";
-console.log(apellido);
-
-// tipos de datos
-
-// strings --> cadena de texto
-let palabra = "casa";
-let frase = "pepe esta 'cansado' ";
-
-console.log(palabra);
-console.log(frase);
-
-// number ---> numeros
-
-let numero = 12;
-let numerito = 12.5;
-
-// string
-let telefono = "44444444";
-let cedula = "213213123";
-
-// booleanos --> que responden a una pregunta de si o no
-// true - false
-// una variable que guarde si esta logueado el usuario o no
-
-let usuarioLogueado = true;
-// let usuarioLogueado = false
-
-// let nombreprompt = prompt("ingresa tu nombre");
-// let nombre_prompt = prompt("ingresa tu nombre");
-
-// let nombrePrompt = prompt("ingresa tu nombre");
-
-// // Operadores +
-
-// // concatenar strings
-
-// let saludo = "hola " + nombrePrompt + " como estas?";
-
-// // template literals
-// // backsticks --> `` --> alt + 96
-// let saludoPro = `hola ${nombrePrompt} como estas? ${edad} hola ${2 + 2}`;
-
-// console.log(saludoPro);
-// `das dsad sad sdsa ${} dsad asdsad asd ${} dsad asdsada`
-
-let n1 = 9;
-let n2 = 2;
-
-console.log(n1 + n2);
-console.log(n1 - n2);
-console.log(n1 * n2);
-console.log(n1 / n2);
-
-console.log("--------");
-
-console.log(n1 / n2); // devuelve el resultado de la division
-console.log(n1 % n2); // devuelve el resto
-
-// booleanos
-
-let x = 12;
-let z = "12";
-// operadores de comparacion --> SIEMPRE SIEMPRE SIEMPRE DEVUELVE UN BOOLEANO
-
-console.log(x > z);
-console.log(x < z);
-console.log(x >= z);
-console.log(x <= z);
-
-console.log("-----------");
-// comparacion simple
-console.log(x != z); // --> FALSE
-// console.log(x != z);
-
-// comparacion estricta
-// console.log(x === z);
-
-console.log(x !== z); // ---> TRUE
+renderizarProductos();
