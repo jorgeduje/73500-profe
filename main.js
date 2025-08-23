@@ -18,7 +18,7 @@ const productos = [
   { id: 9, nombre: "Impresora HP Multifunción", precio: 87000, stock: 5 },
   { id: 10, nombre: "Webcam Full HD Logitech", precio: 32000, stock: 11 },
 ];
-let carrrito = [];
+
 const renderizarProductos = () => {
   let contenedor = document.querySelector(".productos");
   let htmlCompletoDeProductos = "";
@@ -28,12 +28,17 @@ const renderizarProductos = () => {
     <div class="producto">
       <h3>${producto.nombre}</h3>
       <h5>${producto.precio}</h5>
-      <button>Agregar al carrito</button>
+      <button onclick="agregarProducto(${producto.id})">Agregar al carrito</button>
     </div>
     `;
   });
-
   contenedor.innerHTML = htmlCompletoDeProductos;
 };
 
 renderizarProductos();
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+const agregarProducto = (id) => {
+  let productoEncontrado = productos.find((producto) => producto.id === id);
+  carrito.push(productoEncontrado);
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+};
